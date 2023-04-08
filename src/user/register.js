@@ -19,6 +19,7 @@ import axios from "axios";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
+const apiRoute = "https://beejaadhaarbackend.onrender.com/";
 
 //form validation
 const validateForm = Yup.object({
@@ -54,25 +55,6 @@ const theme = createTheme();
 export default function Register() {
     const navigate = useNavigate();
 
-    //   axios
-    //     .post("http://localhost:8080/api/users/register", {
-    //       email: data.get("email"),
-    //       password: data.get("password"),
-    //       firstname: data.get("firstName"),
-    //       lastname: data.get("lastName"),
-    //     })
-    //     .then(function (response) {
-    //       console.log(response.data);
-    //       let res = response.data;
-    //       window.location.href = "/login";
-    //     })
-    //     .catch(function (error) {
-    //       console.log(error);
-    //     });
-    // console.log({
-    //   email: data.get("email"),
-    //   password: data.get("password"),
-    // });
     const formik = useFormik({
         initialValues: {
             firstname: "",
@@ -83,7 +65,7 @@ export default function Register() {
         onSubmit: (values) => {
 
             console.log(values.email);
-            axios.post("http://localhost:3030/user/otp", {
+            axios.post( apiRoute + "user/otp", {
                   email: values.email,
                   password: values.password,
                   firstname: values.firstname,

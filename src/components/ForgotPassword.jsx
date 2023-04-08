@@ -20,6 +20,7 @@ import * as Yup from "yup";
 
 
 //form validation
+const apiRoute = "https://beejaadhaarbackend.onrender.com/";
 
 
 const theme = createTheme();
@@ -52,8 +53,8 @@ function ForgotPassword() {
             // console.log(userotp+" "+otp);
 
 
-            if (otp == userotp) {
-                axios.post("http://localhost:3030/user/passwordChange", {
+            if (otp === userotp) {
+                axios.post( apiRoute + "user/passwordChange", {
                     email:email,
                     password:password,
                 })

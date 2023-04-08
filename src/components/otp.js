@@ -21,6 +21,9 @@ import * as Yup from "yup";
 
 //form validation
 
+const apiRoute = "https://beejaadhaarbackend.onrender.com/";
+
+
 function Copyright(props) {
     return (
         <Typography
@@ -64,7 +67,7 @@ export default function Otp() {
 
 
             if (otp == userotp) {
-                axios.post("http://localhost:3030/user/create", {
+                axios.post( apiRoute + "user/create", {
                     state
                     })
                     .then(function (response) {

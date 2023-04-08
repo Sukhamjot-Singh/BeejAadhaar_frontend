@@ -18,6 +18,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import image from "./2.jpg";
 
+const apiRoute = "https://beejaadhaarbackend.onrender.com/";
+
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -38,7 +40,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3030/crop/", {})
+      .get(apiRoute + "crop/", {})
       .then(function (response) {
         setRes(response.data);
         // setRes(response.data[0]);
@@ -72,7 +74,7 @@ export default function Dashboard() {
     e.preventDefault();
     console.log(crop);
     axios
-    .post("http://localhost:3030/crop/add", crop)
+    .post( apiRoute + "crop/add", crop)
     .then(function (response) {
       window.location.reload();
       })
@@ -83,7 +85,7 @@ export default function Dashboard() {
 
   function deleteCrop(crop) {
     axios
-    .post("http://localhost:3030/crop/delete", {_id: crop._id})
+    .post( apiRoute + "crop/delete", {_id: crop._id})
     .then(function (response) {
       window.location.reload();
       })
